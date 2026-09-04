@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Villa Motel | Santa Maria, CA</title>
+    <title>NFL Game Center & Predictions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #15803d;
-            --primary-hover: #166534;
-            --accent: #b45309;
-            --bg-light: #f8fafc;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
-            --radius: 12px;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-blue: #38bdf8;
+            --accent-green: #22c55e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
         }
 
         * {
@@ -27,315 +25,261 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            text-align: center;
+            margin-bottom: 2.5rem;
         }
 
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .logo {
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .nav-links {
-            display: flex;
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            list-style: none;
+            margin-bottom: 3rem;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('image_d505e5.jpg') center/cover no-repeat;
-            color: #ffffff;
-            padding: 5rem 1.5rem;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: #e2e8f0;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: #ffffff;
-            padding: 0.85rem 1.75rem;
-            border-radius: var(--radius);
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-
-        .btn:hover {
-            background-color: #92400e;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            color: var(--text-dark);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .amenities-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .amenity-item {
-            background: var(--card-bg);
-            padding: 1rem;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
+        .game-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 500;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
+        .game-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
         }
 
-        .info-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .info-group h4 {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .game-time {
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 0.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
         }
 
-        .info-group p {
-            font-size: 1.1rem;
+        .matchup {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .team.predicted-winner {
+            color: #ffffff;
+        }
+
+        .team.predicted-winner::after {
+            content: '▲';
+            color: var(--accent-green);
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .prediction-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 0.75rem;
+            border-left: 3px solid var(--accent-green);
+        }
+
+        .prediction-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .prediction-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 0.25rem;
+        }
+
+        .confidence {
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            font-weight: 500;
         }
 
         footer {
-            background-color: #0f172a;
-            color: #94a3b8;
             text-align: center;
-            padding: 2rem 1.5rem;
+            color: var(--text-muted);
             font-size: 0.875rem;
-            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         @media (max-width: 640px) {
-            .nav-links {
-                display: none;
+            header h1 {
+                font-size: 2rem;
             }
-            .hero h1 {
-                font-size: 1.85rem;
-            }
-            .contact-container {
-                padding: 1.5rem;
+            .games-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav class="nav-container">
-            <a href="#" class="logo">
-                Villa Motel
-            </a>
-            <ul class="nav-links">
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#amenities">Amenities</a></li>
-                <li><a href="#location">Location</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>NFL Game Center</h1>
+            <p>Upcoming Schedule & Matchup Predictions</p>
+        </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcoming & Budget-Friendly Stay in Santa Maria</h1>
-            <p>Your comfortable retreat on South Broadway. Conveniently located near the Fairpark, local dining, and Santa Maria wine country.</p>
-            <a href="tel:18059258734" class="btn">Call to Book: (805) 925-8734</a>
+        <div class="section-title">Week 1 Featured Matchups</div>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <div>
+                    <div class="game-time">Wed, Sep 9 • 5:20 PM PT</div>
+                    <div class="matchup">
+                        <div class="team">New England Patriots</div>
+                        <div class="team predicted-winner">Seattle Seahawks</div>
+                    </div>
+                </div>
+                <div class="prediction-box">
+                    <div class="prediction-title">Prediction</div>
+                    <div class="prediction-value">Seahawks win 24 - 17</div>
+                    <div class="confidence">68% Win Probability</div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div>
+                    <div class="game-time">Thu, Sep 10 • 5:35 PM PT</div>
+                    <div class="matchup">
+                        <div class="team predicted-winner">San Francisco 49ers</div>
+                        <div class="team">Los Angeles Rams</div>
+                    </div>
+                </div>
+                <div class="prediction-box">
+                    <div class="prediction-title">Prediction</div>
+                    <div class="prediction-value">49ers win 27 - 21</div>
+                    <div class="confidence">58% Win Probability</div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div>
+                    <div class="game-time">Sun, Sep 13 • 10:00 AM PT</div>
+                    <div class="matchup">
+                        <div class="team predicted-winner">Baltimore Ravens</div>
+                        <div class="team">Indianapolis Colts</div>
+                    </div>
+                </div>
+                <div class="prediction-box">
+                    <div class="prediction-title">Prediction</div>
+                    <div class="prediction-value">Ravens win 31 - 20</div>
+                    <div class="confidence">72% Win Probability</div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div>
+                    <div class="game-time">Sun, Sep 13 • 10:00 AM PT</div>
+                    <div class="matchup">
+                        <div class="team">Buffalo Bills</div>
+                        <div class="team predicted-winner">Houston Texans</div>
+                    </div>
+                </div>
+                <div class="prediction-box">
+                    <div class="prediction-title">Prediction</div>
+                    <div class="prediction-value">Texans win 23 - 20</div>
+                    <div class="confidence">54% Win Probability</div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div>
+                    <div class="game-time">Sun, Sep 13 • 1:25 PM PT</div>
+                    <div class="matchup">
+                        <div class="team predicted-winner">Green Bay Packers</div>
+                        <div class="team">Minnesota Vikings</div>
+                    </div>
+                </div>
+                <div class="prediction-box">
+                    <div class="prediction-title">Prediction</div>
+                    <div class="prediction-value">Packers win 28 - 24</div>
+                    <div class="confidence">61% Win Probability</div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div>
+                    <div class="game-time">Mon, Sep 14 • 5:15 PM PT</div>
+                    <div class="matchup">
+                        <div class="team">Denver Broncos</div>
+                        <div class="team predicted-winner">Kansas City Chiefs</div>
+                    </div>
+                </div>
+                <div class="prediction-box">
+                    <div class="prediction-title">Prediction</div>
+                    <div class="prediction-value">Chiefs win 30 - 17</div>
+                    <div class="confidence">75% Win Probability</div>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <main class="container">
-        <section id="rooms" style="margin-bottom: 4rem;">
-            <h2 class="section-title">Accommodations</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="image_d508b3.png" alt="Comfort King Room" class="card-img">
-                    <div class="card-body">
-                        <h3>Comfort King Room</h3>
-                        <p>Features 1 King Bed, flat-screen cable TV, vanity area, mini-fridge, microwave, and hardwood-style flooring.</p>
-                        <strong>From $84 / night</strong>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="image_d508f0.png" alt="Deluxe Double Room" class="card-img">
-                    <div class="card-body">
-                        <h3>Deluxe Double Room</h3>
-                        <p>Spacious accommodations with 2 Beds, desk area, in-room mini-fridge, microwave, and exterior door access.</p>
-                        <strong>From $94 / night</strong>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="image_d505e5.jpg" alt="Villa Motel Exterior & Driveway" class="card-img">
-                    <div class="card-body">
-                        <h3>Property & Parking</h3>
-                        <p>Ground-floor exterior access rooms with free parking directly in front of your entrance and 24/7 lobby access.</p>
-                        <strong>Easy Drive-Up Access</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="amenities" style="margin-bottom: 4rem;">
-            <h2 class="section-title">Motel Amenities</h2>
-            <ul class="amenities-list">
-                <li class="amenity-item">📶 Complimentary High-Speed Wi-Fi</li>
-                <li class="amenity-item">🚗 Free Ground-Floor Parking</li>
-                <li class="amenity-item">🧊 In-Room Mini Refrigerator</li>
-                <li class="amenity-item">🍿 In-Room Microwave</li>
-                <li class="amenity-item">📺 Wall-Mounted Cable TV</li>
-                <li class="amenity-item">❄️ Air Conditioning & Heating</li>
-                <li class="amenity-item">♿ Accessible Entrances Available</li>
-            </ul>
-        </section>
-
-        <section id="location">
-            <h2 class="section-title">Visit Us</h2>
-            <div class="contact-container">
-                <div>
-                    <div class="info-group">
-                        <h4>Address</h4>
-                        <p>1204 S Broadway<br>Santa Maria, CA 93454</p>
-                    </div>
-                    <div class="info-group">
-                        <h4>Phone</h4>
-                        <p><a href="tel:18059258734" style="color: var(--primary); text-decoration: none;">(805) 925-8734</a></p>
-                    </div>
-                    <div class="info-group">
-                        <h4>Check-in / Check-out</h4>
-                        <p>Check-in: 3:00 PM – 11:00 PM<br>Check-out: 11:00 AM</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="info-group">
-                        <h4>Nearby Points of Interest</h4>
-                        <p style="font-weight: 400; font-size: 0.95rem; color: var(--text-muted);">
-                            • Santa Maria Fairpark (0.4 mi / 7 min walk)<br>
-                            • Discovery Museum (0.5 mi / 8 min walk)<br>
-                            • Santa Maria Historical Society (0.6 mi)<br>
-                            • Santa Maria Public Airport (3.9 mi)
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Villa Motel Santa Maria. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; Personal NFL Prediction Hub. Data updated for the 2026 Season.</p>
+        </footer>
+    </div>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Score Predictions</title>
+    <title>NFL Weekly Score Predictions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         header h1 {
@@ -62,52 +62,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* Week Navigation Bar */
-        .week-selector-wrapper {
-            margin-bottom: 2rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            scrollbar-width: thin;
-            scrollbar-color: var(--border-color) transparent;
-        }
-
-        .week-selector {
-            display: flex;
-            gap: 0.5rem;
-            width: max-content;
-            margin: 0 auto;
-            padding: 0 0.5rem;
-        }
-
-        .week-btn {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 0.6rem 1rem;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .week-btn:hover {
-            color: var(--text-primary);
-            border-color: var(--text-secondary);
-        }
-
-        .week-btn.active {
-            background-color: var(--accent-green);
-            color: #000000;
-            border-color: var(--accent-green);
-        }
-
-        .week-content {
-            display: none;
-        }
-
-        .week-content.active {
+        .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.25rem;
@@ -230,8 +185,8 @@
             header h1 {
                 font-size: 1.75rem;
             }
-            .week-selector {
-                margin: 0;
+            .games-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -240,267 +195,182 @@
 
     <div class="container">
         <header>
-            <h1>NFL Season Predictions</h1>
-            <p>Score Forecasts & Winner Picks</p>
+            <h1>NFL Week 1 Predictions</h1>
+            <p>Fast Score Forecasts & Winner Pick</p>
         </header>
 
-        <div class="week-selector-wrapper">
-            <div class="week-selector">
-                <button class="week-btn active" onclick="showWeek('week-1', this)">Week 1</button>
-                <button class="week-btn" onclick="showWeek('week-2', this)">Week 2</button>
-                <button class="week-btn" onclick="showWeek('week-3', this)">Week 3</button>
-                <button class="week-btn" onclick="showWeek('week-4', this)">Week 4</button>
-                <button class="week-btn" onclick="showWeek('week-5', this)">Week 5</button>
-                <button class="week-btn" onclick="showWeek('week-6', this)">Week 6</button>
-                <button class="week-btn" onclick="showWeek('week-7', this)">Week 7</button>
-                <button class="week-btn" onclick="showWeek('week-8', this)">Week 8</button>
-                <button class="week-btn" onclick="showWeek('week-9', this)">Week 9</button>
-                <button class="week-btn" onclick="showWeek('week-10', this)">Week 10</button>
-                <button class="week-btn" onclick="showWeek('week-11', this)">Week 11</button>
-                <button class="week-btn" onclick="showWeek('week-12', this)">Week 12</button>
-                <button class="week-btn" onclick="showWeek('week-13', this)">Week 13</button>
-                <button class="week-btn" onclick="showWeek('week-14', this)">Week 14</button>
-                <button class="week-btn" onclick="showWeek('week-15', this)">Week 15</button>
-                <button class="week-btn" onclick="showWeek('week-16', this)">Week 16</button>
-                <button class="week-btn" onclick="showWeek('week-17', this)">Week 17</button>
-                <button class="week-btn" onclick="showWeek('week-18', this)">Week 18</button>
-            </div>
-        </div>
+        <main class="games-grid">
 
-        <main id="games-container">
-
-            <div id="week-1" class="week-content active">
-                <div class="game-card">
-                    <div class="kickoff-time">Wed, Sep 9 • 5:20 PM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/TBundxbzC_MgPXOaQ-U73g_120x120.png" alt="Patriots" class="team-logo">
-                                <span class="team-name">Patriots</span>
-                            </div>
-                            <span class="predicted-score">17</span>
+            <div class="game-card">
+                <div class="kickoff-time">Wed, Sep 9 • 5:20 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/TBundxbzC_MgPXOaQ-U73g_120x120.png" alt="Patriots" class="team-logo">
+                            <span class="team-name">Patriots</span>
                         </div>
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-JYGEMKqZXTaYmRKYXzmCw_120x120.png" alt="Seahawks" class="team-logo">
-                                <span class="team-name">Seahawks</span>
-                            </div>
-                            <span class="predicted-score">24</span>
-                        </div>
+                        <span class="predicted-score">17</span>
                     </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Seahawks</span>
-                        <span class="confidence-tag">68% Confidence</span>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-JYGEMKqZXTaYmRKYXzmCw_120x120.png" alt="Seahawks" class="team-logo">
+                            <span class="team-name">Seahawks</span>
+                        </div>
+                        <span class="predicted-score">24</span>
                     </div>
                 </div>
-
-                <div class="game-card">
-                    <div class="kickoff-time">Thu, Sep 10 • 5:35 PM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/Sc-eM0054yQ9Pv4_HmNe0Q_120x120.png" alt="49ers" class="team-logo">
-                                <span class="team-name">49ers</span>
-                            </div>
-                            <span class="predicted-score">27</span>
-                        </div>
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/tTO3w_zX4MxNC_acNpsMaA_120x120.png" alt="Rams" class="team-logo">
-                                <span class="team-name">Rams</span>
-                            </div>
-                            <span class="predicted-score">21</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: 49ers</span>
-                        <span class="confidence-tag">58% Confidence</span>
-                    </div>
-                </div>
-
-                <div class="game-card">
-                    <div class="kickoff-time">Sun, Sep 13 • 10:00 AM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/4o4skCUO63LJdhtbyNbtCQ_120x120.png" alt="Ravens" class="team-logo">
-                                <span class="team-name">Ravens</span>
-                            </div>
-                            <span class="predicted-score">31</span>
-                        </div>
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/AGEeRWtwE37msOgDD99Kcw_120x120.png" alt="Colts" class="team-logo">
-                                <span class="team-name">Colts</span>
-                            </div>
-                            <span class="predicted-score">20</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Ravens</span>
-                        <span class="confidence-tag">72% Confidence</span>
-                    </div>
-                </div>
-
-                <div class="game-card">
-                    <div class="kickoff-time">Mon, Sep 14 • 5:15 PM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-Y7S1VpDZQ6t9f-OZdlugw_120x120.png" alt="Broncos" class="team-logo">
-                                <span class="team-name">Broncos</span>
-                            </div>
-                            <span class="predicted-score">17</span>
-                        </div>
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/UVLlczXJQ1wxxKMT9ShJQw_120x120.png" alt="Chiefs" class="team-logo">
-                                <span class="team-name">Chiefs</span>
-                            </div>
-                            <span class="predicted-score">30</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Chiefs</span>
-                        <span class="confidence-tag">75% Confidence</span>
-                    </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Seahawks</span>
+                    <span class="confidence-tag">68% Confidence</span>
                 </div>
             </div>
 
-            <div id="week-2" class="week-content">
-                <div class="game-card">
-                    <div class="kickoff-time">Thu, Sep 17 • 5:15 PM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/0vpUGyYGKQ3ILA3rTI-sEA_120x120.png" alt="Lions" class="team-logo">
-                                <span class="team-name">Lions</span>
-                            </div>
-                            <span class="predicted-score">24</span>
+            <div class="game-card">
+                <div class="kickoff-time">Thu, Sep 10 • 5:35 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/Sc-eM0054yQ9Pv4_HmNe0Q_120x120.png" alt="49ers" class="team-logo">
+                            <span class="team-name">49ers</span>
                         </div>
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/t-WvhVQI8fKZliuPz7RLKQ_120x120.png" alt="Bills" class="team-logo">
-                                <span class="team-name">Bills</span>
-                            </div>
-                            <span class="predicted-score">28</span>
-                        </div>
+                        <span class="predicted-score">27</span>
                     </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Bills</span>
-                        <span class="confidence-tag">62% Confidence</span>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/tTO3w_zX4MxNC_acNpsMaA_120x120.png" alt="Rams" class="team-logo">
+                            <span class="team-name">Rams</span>
+                        </div>
+                        <span class="predicted-score">21</span>
                     </div>
                 </div>
-
-                <div class="game-card">
-                    <div class="kickoff-time">Sun, Sep 20 • 10:00 AM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/bY4iY-e4FFsUnDmkn5HDAg_120x120.png" alt="Eagles" class="team-logo">
-                                <span class="team-name">Eagles</span>
-                            </div>
-                            <span class="predicted-score">27</span>
-                        </div>
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/zHAO1kUGSn_DRsTQBVT0IA_120x120.png" alt="Dolphins" class="team-logo">
-                                <span class="team-name">Dolphins</span>
-                            </div>
-                            <span class="predicted-score">20</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Eagles</span>
-                        <span class="confidence-tag">65% Confidence</span>
-                    </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: 49ers</span>
+                    <span class="confidence-tag">58% Confidence</span>
                 </div>
             </div>
 
-            <div id="week-3" class="week-content">
-                <div class="game-card">
-                    <div class="kickoff-time">Thu, Sep 24 • 5:15 PM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/VeFjPDwgNAreoWjnpVNqrg_120x120.png" alt="Packers" class="team-logo">
-                                <span class="team-name">Packers</span>
-                            </div>
-                            <span class="predicted-score">26</span>
+            <div class="game-card">
+                <div class="kickoff-time">Sun, Sep 13 • 10:00 AM PT</div>
+                <div class="teams-container">
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/4o4skCUO63LJdhtbyNbtCQ_120x120.png" alt="Ravens" class="team-logo">
+                            <span class="team-name">Ravens</span>
                         </div>
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/iKk6JE8KwrY-hVGy2W3_9Q_120x120.png" alt="Bears" class="team-logo">
-                                <span class="team-name">Bears</span>
-                            </div>
-                            <span class="predicted-score">17</span>
+                        <span class="predicted-score">31</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/AGEeRWtwE37msOgDD99Kcw_120x120.png" alt="Colts" class="team-logo">
+                            <span class="team-name">Colts</span>
                         </div>
+                        <span class="predicted-score">20</span>
                     </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Packers</span>
-                        <span class="confidence-tag">70% Confidence</span>
-                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Ravens</span>
+                    <span class="confidence-tag">72% Confidence</span>
                 </div>
             </div>
 
-            <div id="week-4" class="week-content">
-                <div class="game-card">
-                    <div class="kickoff-time">Thu, Oct 1 • 5:15 PM PT</div>
-                    <div class="teams-container">
-                        <div class="team-row winner">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/WCVajjIFMyLDIeGymbgJRg_120x120.png" alt="Bengals" class="team-logo">
-                                <span class="team-name">Bengals</span>
-                            </div>
-                            <span class="predicted-score">24</span>
+            <div class="game-card">
+                <div class="kickoff-time">Sun, Sep 13 • 10:00 AM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/t-WvhVQI8fKZliuPz7RLKQ_120x120.png" alt="Bills" class="team-logo">
+                            <span class="team-name">Bills</span>
                         </div>
-                        <div class="team-row">
-                            <div class="team-info">
-                                <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/rcEbdDpgOvasova75gwf9g_120x120.png" alt="Browns" class="team-logo">
-                                <span class="team-name">Browns</span>
-                            </div>
-                            <span class="predicted-score">20</span>
+                        <span class="predicted-score">20</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/73eNOlor0qBomqGY8Rv7sQ_120x120.png" alt="Texans" class="team-logo">
+                            <span class="team-name">Texans</span>
                         </div>
+                        <span class="predicted-score">23</span>
                     </div>
-                    <div class="card-footer">
-                        <span class="winner-tag">Pick: Bengals</span>
-                        <span class="confidence-tag">59% Confidence</span>
-                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Texans</span>
+                    <span class="confidence-tag">54% Confidence</span>
                 </div>
             </div>
 
-            <div id="week-5" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Oct 11 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/UVLlczXJQ1wxxKMT9ShJQw_120x120.png" class="team-logo"><span class="team-name">Chiefs</span></div><span class="predicted-score">31</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/w7shEYWVYqmugc3x-DGVKg_120x120.png" class="team-logo"><span class="team-name">Raiders</span></div><span class="predicted-score">17</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Chiefs</span><span class="confidence-tag">81% Confidence</span></div></div></div>
-            <div id="week-6" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Oct 18 • 1:25 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/Sc-eM0054yQ9Pv4_HmNe0Q_120x120.png" class="team-logo"><span class="team-name">49ers</span></div><span class="predicted-score">28</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/VKf35yOV-6xMtJMrQ2bGuA_120x120.png" class="team-logo"><span class="team-name">Cardinals</span></div><span class="predicted-score">14</span></div></div><div class="card-footer"><span class="winner-tag">Pick: 49ers</span><span class="confidence-tag">76% Confidence</span></div></div></div>
-            <div id="week-7" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Oct 25 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/4o4skCUO63LJdhtbyNbtCQ_120x120.png" class="team-logo"><span class="team-name">Ravens</span></div><span class="predicted-score">27</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/G9ovELPR8dExUou2r-x2eQ_120x120.png" class="team-logo"><span class="team-name">Steelers</span></div><span class="predicted-score">21</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Ravens</span><span class="confidence-tag">64% Confidence</span></div></div></div>
-            <div id="week-8" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Nov 1 • 1:05 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/73eNOlor0qBomqGY8Rv7sQ_120x120.png" class="team-logo"><span class="team-name">Texans</span></div><span class="predicted-score">23</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/fQRCFlwKEORFAvo-Tix0dg_120x120.png" class="team-logo"><span class="team-name">Chargers</span></div><span class="predicted-score">20</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Texans</span><span class="confidence-tag">57% Confidence</span></div></div></div>
-            <div id="week-9" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Nov 8 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/t-WvhVQI8fKZliuPz7RLKQ_120x120.png" class="team-logo"><span class="team-name">Bills</span></div><span class="predicted-score">30</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/9j5g8n8KJzW6gbKa8XoPpQ_120x120.png" class="team-logo"><span class="team-name">Jets</span></div><span class="predicted-score">16</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Bills</span><span class="confidence-tag">73% Confidence</span></div></div></div>
-            <div id="week-10" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Nov 15 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/bY4iY-e4FFsUnDmkn5HDAg_120x120.png" class="team-logo"><span class="team-name">Eagles</span></div><span class="predicted-score">28</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/FkbA-uDEoPb3KPl-JD7yBg_120x120.png" class="team-logo"><span class="team-name">Cowboys</span></div><span class="predicted-score">24</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Eagles</span><span class="confidence-tag">61% Confidence</span></div></div></div>
-            <div id="week-11" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Nov 22 • 5:20 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/0vpUGyYGKQ3ILA3rTI-sEA_120x120.png" class="team-logo"><span class="team-name">Lions</span></div><span class="predicted-score">33</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/8yqZoGy4qCMuPcf3DpMhWQ_120x120.png" class="team-logo"><span class="team-name">Vikings</span></div><span class="predicted-score">27</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Lions</span><span class="confidence-tag">67% Confidence</span></div></div></div>
-            <div id="week-12" class="week-content"><div class="game-card"><div class="kickoff-time">Thu, Nov 26 • 1:30 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/VeFjPDwgNAreoWjnpVNqrg_120x120.png" class="team-logo"><span class="team-name">Packers</span></div><span class="predicted-score">27</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/0vpUGyYGKQ3ILA3rTI-sEA_120x120.png" class="team-logo"><span class="team-name">Lions</span></div><span class="predicted-score">24</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Packers</span><span class="confidence-tag">55% Confidence</span></div></div></div>
-            <div id="week-13" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Dec 6 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/uWf02GYSkYat1KDbm8z5oQ_120x120.png" class="team-logo"><span class="team-name">Falcons</span></div><span class="predicted-score">24</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/VXbaB02tR54ZSCUrh13R6Q_120x120.png" class="team-logo"><span class="team-name">Saints</span></div><span class="predicted-score">20</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Falcons</span><span class="confidence-tag">58% Confidence</span></div></div></div>
-            <div id="week-14" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Dec 13 • 1:25 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-JYGEMKqZXTaYmRKYXzmCw_120x120.png" class="team-logo"><span class="team-name">Seahawks</span></div><span class="predicted-score">21</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/tTO3w_zX4MxNC_acNpsMaA_120x120.png" class="team-logo"><span class="team-name">Rams</span></div><span class="predicted-score">19</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Seahawks</span><span class="confidence-tag">53% Confidence</span></div></div></div>
-            <div id="week-15" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Dec 20 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/rmgWcO4h9AV8fqA1K8XtiQ_120x120.png" class="team-logo"><span class="team-name">Buccaneers</span></div><span class="predicted-score">26</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/CXMe1uLygmmxPU3PNKga7g_120x120.png" class="team-logo"><span class="team-name">Panthers</span></div><span class="predicted-score">17</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Buccaneers</span><span class="confidence-tag">69% Confidence</span></div></div></div>
-            <div id="week-16" class="week-content"><div class="game-card"><div class="kickoff-time">Fri, Dec 25 • 1:30 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/UVLlczXJQ1wxxKMT9ShJQw_120x120.png" class="team-logo"><span class="team-name">Chiefs</span></div><span class="predicted-score">28</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/4o4skCUO63LJdhtbyNbtCQ_120x120.png" class="team-logo"><span class="team-name">Ravens</span></div><span class="predicted-score">24</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Chiefs</span><span class="confidence-tag">56% Confidence</span></div></div></div>
-            <div id="week-17" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Jan 3 • 10:00 AM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/qORI0EhrcHjfv7bkKv7u9A_120x120.png" class="team-logo"><span class="team-name">Commanders</span></div><span class="predicted-score">22</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/CWCa7SI5xq9aS3NP2Gbl9A_120x120.png" class="team-logo"><span class="team-name">Giants</span></div><span class="predicted-score">18</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Commanders</span><span class="confidence-tag">60% Confidence</span></div></div></div>
-            <div id="week-18" class="week-content"><div class="game-card"><div class="kickoff-time">Sun, Jan 10 • 1:25 PM PT</div><div class="teams-container"><div class="team-row winner"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/480D2ENvPcLpQz2DJph0Kg_120x120.png" class="team-logo"><span class="team-name">Titans</span></div><span class="predicted-score">20</span></div><div class="team-row"><div class="team-info"><img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/lvrPIb0a9oUMgZmkh2DLeQ_120x120.png" class="team-logo"><span class="team-name">Jaguars</span></div><span class="predicted-score">17</span></div></div><div class="card-footer"><span class="winner-tag">Pick: Titans</span><span class="confidence-tag">52% Confidence</span></div></div></div>
+            <div class="game-card">
+                <div class="kickoff-time">Sun, Sep 13 • 1:25 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/VeFjPDwgNAreoWjnpVNqrg_120x120.png" alt="Packers" class="team-logo">
+                            <span class="team-name">Packers</span>
+                        </div>
+                        <span class="predicted-score">28</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/8yqZoGy4qCMuPcf3DpMhWQ_120x120.png" alt="Vikings" class="team-logo">
+                            <span class="team-name">Vikings</span>
+                        </div>
+                        <span class="predicted-score">24</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Packers</span>
+                    <span class="confidence-tag">61% Confidence</span>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="kickoff-time">Sun, Sep 13 • 5:20 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/FkbA-uDEoPb3KPl-JD7yBg_120x120.png" alt="Cowboys" class="team-logo">
+                            <span class="team-name">Cowboys</span>
+                        </div>
+                        <span class="predicted-score">21</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/CWCa7SI5xq9aS3NP2Gbl9A_120x120.png" alt="Giants" class="team-logo">
+                            <span class="team-name">Giants</span>
+                        </div>
+                        <span class="predicted-score">24</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Giants</span>
+                    <span class="confidence-tag">52% Confidence</span>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="kickoff-time">Mon, Sep 14 • 5:15 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-Y7S1VpDZQ6t9f-OZdlugw_120x120.png" alt="Broncos" class="team-logo">
+                            <span class="team-name">Broncos</span>
+                        </div>
+                        <span class="predicted-score">17</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/UVLlczXJQ1wxxKMT9ShJQw_120x120.png" alt="Chiefs" class="team-logo">
+                            <span class="team-name">Chiefs</span>
+                        </div>
+                        <span class="predicted-score">30</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Chiefs</span>
+                    <span class="confidence-tag">75% Confidence</span>
+                </div>
+            </div>
 
         </main>
     </div>
 
-    <script>
-        function showWeek(weekId, btn) {
-            // Hide all week containers
-            const contents = document.querySelectorAll('.week-content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.week-btn');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            // Show selected week and set button active
-            document.getElementById(weekId).classList.add('active');
-            btn.classList.add('active');
-        }
-    </script>
 </body>
 </html>

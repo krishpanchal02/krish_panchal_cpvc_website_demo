@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Game Center & Predictions</title>
+    <title>NFL Weekly Score Predictions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-blue: #38bdf8;
-            --accent-green: #22c55e;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
+            --bg-main: #0B0F17;
+            --card-bg: #161F30;
+            --border-color: #233148;
+            --accent-green: #10B981;
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --highlight-bg: rgba(16, 185, 129, 0.12);
         }
 
         * {
@@ -26,147 +27,163 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            padding: 2rem 1rem;
-            line-height: 1.5;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            padding: 1.5rem 1rem 3rem 1rem;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
+            font-size: 2.25rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
         }
 
         .game-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 1.25rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            gap: 1rem;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
-        .game-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-blue);
-        }
-
-        .game-time {
-            font-size: 0.85rem;
+        .kickoff-time {
+            font-size: 0.75rem;
+            font-weight: 700;
             color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.025em;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
-        .matchup {
+        .teams-container {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-            margin-bottom: 1.25rem;
         }
 
-        .team {
+        .team-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .team-row.winner {
+            background-color: var(--highlight-bg);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .team-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .team-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .team-row.winner .team-name {
+            color: var(--text-primary);
+        }
+
+        .predicted-score {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-muted);
+        }
+
+        .team-row.winner .predicted-score {
+            color: var(--accent-green);
+        }
+
+        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .team.predicted-winner {
-            color: #ffffff;
-        }
-
-        .team.predicted-winner::after {
-            content: '▲';
-            color: var(--accent-green);
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-
-        .prediction-box {
-            background-color: rgba(15, 23, 42, 0.6);
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.6rem 0.8rem;
             border-radius: 8px;
-            padding: 0.75rem;
-            border-left: 3px solid var(--accent-green);
-        }
-
-        .prediction-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-
-        .prediction-value {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
             margin-top: 0.25rem;
         }
 
-        .confidence {
-            font-size: 0.8rem;
+        .winner-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
             color: var(--accent-green);
-            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
         }
 
-        footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
+        .winner-tag::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+        }
+
+        .confidence-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
         }
 
         @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
             header h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
             .games-grid {
                 grid-template-columns: 1fr;
@@ -178,107 +195,181 @@
 
     <div class="container">
         <header>
-            <h1>NFL Game Center</h1>
-            <p>Upcoming Schedule & Matchup Predictions</p>
+            <h1>NFL Week 1 Predictions</h1>
+            <p>Fast Score Forecasts & Winner Pick</p>
         </header>
 
-        <div class="section-title">Week 1 Featured Matchups</div>
+        <main class="games-grid">
 
-        <div class="games-grid">
             <div class="game-card">
-                <div>
-                    <div class="game-time">Wed, Sep 9 • 5:20 PM PT</div>
-                    <div class="matchup">
-                        <div class="team">New England Patriots</div>
-                        <div class="team predicted-winner">Seattle Seahawks</div>
+                <div class="kickoff-time">Wed, Sep 9 • 5:20 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/TBundxbzC_MgPXOaQ-U73g_120x120.png" alt="Patriots" class="team-logo">
+                            <span class="team-name">Patriots</span>
+                        </div>
+                        <span class="predicted-score">17</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-JYGEMKqZXTaYmRKYXzmCw_120x120.png" alt="Seahawks" class="team-logo">
+                            <span class="team-name">Seahawks</span>
+                        </div>
+                        <span class="predicted-score">24</span>
                     </div>
                 </div>
-                <div class="prediction-box">
-                    <div class="prediction-title">Prediction</div>
-                    <div class="prediction-value">Seahawks win 24 - 17</div>
-                    <div class="confidence">68% Win Probability</div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Seahawks</span>
+                    <span class="confidence-tag">68% Confidence</span>
                 </div>
             </div>
 
             <div class="game-card">
-                <div>
-                    <div class="game-time">Thu, Sep 10 • 5:35 PM PT</div>
-                    <div class="matchup">
-                        <div class="team predicted-winner">San Francisco 49ers</div>
-                        <div class="team">Los Angeles Rams</div>
+                <div class="kickoff-time">Thu, Sep 10 • 5:35 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/Sc-eM0054yQ9Pv4_HmNe0Q_120x120.png" alt="49ers" class="team-logo">
+                            <span class="team-name">49ers</span>
+                        </div>
+                        <span class="predicted-score">27</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/tTO3w_zX4MxNC_acNpsMaA_120x120.png" alt="Rams" class="team-logo">
+                            <span class="team-name">Rams</span>
+                        </div>
+                        <span class="predicted-score">21</span>
                     </div>
                 </div>
-                <div class="prediction-box">
-                    <div class="prediction-title">Prediction</div>
-                    <div class="prediction-value">49ers win 27 - 21</div>
-                    <div class="confidence">58% Win Probability</div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: 49ers</span>
+                    <span class="confidence-tag">58% Confidence</span>
                 </div>
             </div>
 
             <div class="game-card">
-                <div>
-                    <div class="game-time">Sun, Sep 13 • 10:00 AM PT</div>
-                    <div class="matchup">
-                        <div class="team predicted-winner">Baltimore Ravens</div>
-                        <div class="team">Indianapolis Colts</div>
+                <div class="kickoff-time">Sun, Sep 13 • 10:00 AM PT</div>
+                <div class="teams-container">
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/4o4skCUO63LJdhtbyNbtCQ_120x120.png" alt="Ravens" class="team-logo">
+                            <span class="team-name">Ravens</span>
+                        </div>
+                        <span class="predicted-score">31</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/AGEeRWtwE37msOgDD99Kcw_120x120.png" alt="Colts" class="team-logo">
+                            <span class="team-name">Colts</span>
+                        </div>
+                        <span class="predicted-score">20</span>
                     </div>
                 </div>
-                <div class="prediction-box">
-                    <div class="prediction-title">Prediction</div>
-                    <div class="prediction-value">Ravens win 31 - 20</div>
-                    <div class="confidence">72% Win Probability</div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Ravens</span>
+                    <span class="confidence-tag">72% Confidence</span>
                 </div>
             </div>
 
             <div class="game-card">
-                <div>
-                    <div class="game-time">Sun, Sep 13 • 10:00 AM PT</div>
-                    <div class="matchup">
-                        <div class="team">Buffalo Bills</div>
-                        <div class="team predicted-winner">Houston Texans</div>
+                <div class="kickoff-time">Sun, Sep 13 • 10:00 AM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/t-WvhVQI8fKZliuPz7RLKQ_120x120.png" alt="Bills" class="team-logo">
+                            <span class="team-name">Bills</span>
+                        </div>
+                        <span class="predicted-score">20</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/73eNOlor0qBomqGY8Rv7sQ_120x120.png" alt="Texans" class="team-logo">
+                            <span class="team-name">Texans</span>
+                        </div>
+                        <span class="predicted-score">23</span>
                     </div>
                 </div>
-                <div class="prediction-box">
-                    <div class="prediction-title">Prediction</div>
-                    <div class="prediction-value">Texans win 23 - 20</div>
-                    <div class="confidence">54% Win Probability</div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Texans</span>
+                    <span class="confidence-tag">54% Confidence</span>
                 </div>
             </div>
 
             <div class="game-card">
-                <div>
-                    <div class="game-time">Sun, Sep 13 • 1:25 PM PT</div>
-                    <div class="matchup">
-                        <div class="team predicted-winner">Green Bay Packers</div>
-                        <div class="team">Minnesota Vikings</div>
+                <div class="kickoff-time">Sun, Sep 13 • 1:25 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/VeFjPDwgNAreoWjnpVNqrg_120x120.png" alt="Packers" class="team-logo">
+                            <span class="team-name">Packers</span>
+                        </div>
+                        <span class="predicted-score">28</span>
+                    </div>
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/8yqZoGy4qCMuPcf3DpMhWQ_120x120.png" alt="Vikings" class="team-logo">
+                            <span class="team-name">Vikings</span>
+                        </div>
+                        <span class="predicted-score">24</span>
                     </div>
                 </div>
-                <div class="prediction-box">
-                    <div class="prediction-title">Prediction</div>
-                    <div class="prediction-value">Packers win 28 - 24</div>
-                    <div class="confidence">61% Win Probability</div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Packers</span>
+                    <span class="confidence-tag">61% Confidence</span>
                 </div>
             </div>
 
             <div class="game-card">
-                <div>
-                    <div class="game-time">Mon, Sep 14 • 5:15 PM PT</div>
-                    <div class="matchup">
-                        <div class="team">Denver Broncos</div>
-                        <div class="team predicted-winner">Kansas City Chiefs</div>
+                <div class="kickoff-time">Sun, Sep 13 • 5:20 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/FkbA-uDEoPb3KPl-JD7yBg_120x120.png" alt="Cowboys" class="team-logo">
+                            <span class="team-name">Cowboys</span>
+                        </div>
+                        <span class="predicted-score">21</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/CWCa7SI5xq9aS3NP2Gbl9A_120x120.png" alt="Giants" class="team-logo">
+                            <span class="team-name">Giants</span>
+                        </div>
+                        <span class="predicted-score">24</span>
                     </div>
                 </div>
-                <div class="prediction-box">
-                    <div class="prediction-title">Prediction</div>
-                    <div class="prediction-value">Chiefs win 30 - 17</div>
-                    <div class="confidence">75% Win Probability</div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Giants</span>
+                    <span class="confidence-tag">52% Confidence</span>
                 </div>
             </div>
-        </div>
 
-        <footer>
-            <p>&copy; Personal NFL Prediction Hub. Data updated for the 2026 Season.</p>
-        </footer>
+            <div class="game-card">
+                <div class="kickoff-time">Mon, Sep 14 • 5:15 PM PT</div>
+                <div class="teams-container">
+                    <div class="team-row">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/-Y7S1VpDZQ6t9f-OZdlugw_120x120.png" alt="Broncos" class="team-logo">
+                            <span class="team-name">Broncos</span>
+                        </div>
+                        <span class="predicted-score">17</span>
+                    </div>
+                    <div class="team-row winner">
+                        <div class="team-info">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/optimized/UVLlczXJQ1wxxKMT9ShJQw_120x120.png" alt="Chiefs" class="team-logo">
+                            <span class="team-name">Chiefs</span>
+                        </div>
+                        <span class="predicted-score">30</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="winner-tag">Pick: Chiefs</span>
+                    <span class="confidence-tag">75% Confidence</span>
+                </div>
+            </div>
+
+        </main>
     </div>
 
 </body>
